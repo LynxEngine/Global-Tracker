@@ -1,17 +1,17 @@
 name: Lynx-24-7-Engine
 on:
-  workflow_dispatch:      # Adds a "Manual Run" button
+  workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *' # Runs every 30 minutes automatically
+    - cron: '*/30 * * * *'
 jobs:
   run-tracker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Updated to v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Updated to v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
       - name: Install dependencies
         run: pip install requests
       - name: Run Scan
